@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 import '../providers/app_state.dart';
 import '../services/location_service.dart';
 import '../models/shot.dart';
+import '../models/round.dart';
 import '../utils/theme.dart';
 
 class ShotTrackingScreen extends StatefulWidget {
@@ -422,7 +423,7 @@ class _ShotTrackingScreenState extends State<ShotTrackingScreen> {
         timestamp: DateTime.now(),
       );
 
-      await appState.currentRound!.shots.add(shot);
+      appState.currentRound!.shots.add(shot);
       await appState.updateCurrentRound(appState.currentRound!);
 
       setState(() {
